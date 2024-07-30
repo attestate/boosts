@@ -25,6 +25,9 @@ You may ask: What happened with my collateral? The answer: It went to the Kiwi N
 3. Go to https://optimistic.etherscan.io/address/0xb0c9502ea7c11ea0fe6157bfc43e3507fa69bba0#writeContract and open the `set(title, href)` method. Put your title and href (the link to your page). And for the payableAmount, put the ether value. Then click "Write" and confirm in your wallet.
 4. If everything goes well, within the next cache session the front page on Kiwi should display your ad. This can take a few minutes.
 
+<img width="515" alt="Screenshot 2024-07-30 at 14 29 37" src="https://github.com/user-attachments/assets/75dd8c2e-3e36-4e0e-a1de-947db706d43b">
+
+
 ## Deployment
 
 CREATE2 is used to deploy the contract to a deterministic address independent

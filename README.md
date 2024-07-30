@@ -6,7 +6,7 @@ read the code
 
 This contract will give you access to set an ad on https://kiwinews.xyz. The ad will be, for example, permanently available as the top third link here:
 
-<img width="948" alt="Screenshot 2024-07-30 at 13 14 42" src="https://github.com/user-attachments/assets/0f3bffda-59b8-447b-a694-a22e5e74bdaf">
+<img width="1054" alt="Screenshot 2024-07-30 at 13 56 10" src="https://github.com/user-attachments/assets/78846981-bb73-4318-878d-403ea60fd155">
 
 At the time of writing, we reach roughly 150-400 individuals in the crypto space. But we have no idea how much it'd be worth to advertise to these people, hence the smart contract. It'll help us do price discovery. So how does it work?
 
@@ -18,6 +18,12 @@ Basically, you can stake an amount of ETH for the contract to be yours. Say you 
 
 You may ask: What happened with my collateral? The answer: It went to the Kiwi News treasury. We charge the entire collateral's value as a fee and it is being deducted from your collateral every second that you run the ad. So if your collateral is worth 1 ETH, we'll charge you 1 ETH/year to run the ad.
 
+### How to set an ad while there is no user interface for it?
+
+1. Go to https://optimistic.etherscan.io/address/0xb0c9502ea7c11ea0fe6157bfc43e3507fa69bba0#readContract and query `price()`. `uint256 nextPrice` is the price of the ad in wei
+2. Go to wei.tools, paste in the wei amount and find an ether price that you're OK with paying.
+3. Go to https://optimistic.etherscan.io/address/0xb0c9502ea7c11ea0fe6157bfc43e3507fa69bba0#writeContract and open the `set(title, href)` method. Put your title and href (the link to your page). And for the payableAmount, put the ether value. Then click "Write" and confirm in your wallet.
+4. If everything goes well, within the next cache session the front page on Kiwi should display your ad. This can take a few minutes.
 
 ## Deployment
 

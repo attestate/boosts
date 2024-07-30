@@ -6,7 +6,7 @@ read the code
 
 This contract will give you access to set an ad on https://kiwinews.xyz. The ad will be, for example, permanently available as the top third link here:
 
-<img width="1054" alt="Screenshot 2024-07-30 at 13 56 10" src="https://github.com/user-attachments/assets/78846981-bb73-4318-878d-403ea60fd155">
+![image](https://github.com/user-attachments/assets/62fae391-6eca-4959-ac72-f225f19b877e)
 
 At the time of writing, we reach roughly 150-400 individuals in the crypto space. But we have no idea how much it'd be worth to advertise to these people, hence the smart contract. It'll help us do price discovery. So how does it work?
 

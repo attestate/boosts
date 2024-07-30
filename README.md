@@ -2,6 +2,23 @@
 
 read the code
 
+## How does it work?
+
+This contract will give you access to set an ad on https://kiwinews.xyz. The ad will be, for example, permanently available as the top third link here:
+
+<img width="948" alt="Screenshot 2024-07-30 at 13 14 42" src="https://github.com/user-attachments/assets/0f3bffda-59b8-447b-a694-a22e5e74bdaf">
+
+At the time of writing, we reach roughly 150-400 individuals in the crypto space. But we have no idea how much it'd be worth to advertise to these people, hence the smart contract. It'll help us do price discovery. So how does it work?
+
+Basically, you can stake an amount of ETH for the contract to be yours. Say you stake 1 ETH, then you'll get to set the title and the link. But over 1 year, we'll charge you 1 ETH in fees. Here's how your staked collateral is taxed over the year:
+
+- Day 0: You have 1 ETH in collateral and you can set the title and link. For someone else to buy the ad space from you, they have to pay more than 1 ETH (and you'll get your 1 ETH back).
+- Day 182 (half a year): Your ad is still being displayed, but now your collateral is only worth 0.5 ETH (we tax 1 ETH/year). For someone else to buy your ad space, they'll just have to pay a little more than 0.5 ETH (and you'll get 0.5 ETH back).
+- Day 356 (year): Your ad is about to be taken off the website. In case noone has bought yet, your collateral now is very low 0.0000.. ETH, and so for someone else to buy the ad space from you is extremely cheap.
+
+You may ask: What happened with my collateral? The answer: It went to the Kiwi News treasury. We charge the entire collateral's value as a fee and it is being deducted from your collateral every second that you run the ad. So if your collateral is worth 1 ETH, we'll charge you 1 ETH/year to run the ad.
+
+
 ## Deployment
 
 CREATE2 is used to deploy the contract to a deterministic address independent

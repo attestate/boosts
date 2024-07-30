@@ -20,7 +20,7 @@ You may ask: What happened with my collateral? The answer: It went to the Kiwi N
 
 ### How to set an ad while there is no user interface for it?
 
-1. Go to https://optimistic.etherscan.io/address/0xb0c9502ea7c11ea0fe6157bfc43e3507fa69bba0#readContract and query `price()`. `uint256 nextPrice` is the price of the ad in wei
+1. Go to https://optimistic.etherscan.io/address/0xb0c9502ea7c11ea0fe6157bfc43e3507fa69bba0#readContract and query `price()`. `uint256 nextPrice` is the minimum price of the ad in wei. Your new price will have to be at least 1 wei higher.
 2. Go to wei.tools, paste in the wei amount and find an ether price that you're OK with paying.
 3. Go to https://optimistic.etherscan.io/address/0xb0c9502ea7c11ea0fe6157bfc43e3507fa69bba0#writeContract and open the `set(title, href)` method. Put your title and href (the link to your page). And for the payableAmount, put the ether value. Then click "Write" and confirm in your wallet.
 4. If everything goes well, within the next cache session the front page on Kiwi should display your ad. This can take a few minutes.

@@ -6,8 +6,14 @@ import "forge-std/Test.sol";
 import { Ad, denominator, treasury, admin } from "../src/Ad.sol";
 
 contract Setter {
-  function set(Ad ad, string calldata title, string calldata href) external payable {
-    ad.set{value: msg.value}(title, href);
+  receive() external payable {}
+  function set(
+    Ad ad,
+    string calldata title,
+    string calldata href,
+    uint256 value
+  ) external {
+    ad.set{value: value}(title, href);
   }
 }
 
@@ -37,7 +43,9 @@ contract AdTest is Test {
     assertEq(price, 0);
     assertEq(taxes, 0);
     Setter setter = new Setter();
-    setter.set{value: 1}(ad, title, href);
+    payable(address(setter)).transfer(1 ether);
+    uint256 setterValue = 1;
+    setter.set(ad, title, href, setterValue);
     assertEq(ad.controller(), address(setter));
     assertEq(ad.collateral(), 1);
     assertEq(ad.timestamp(), block.timestamp);
@@ -46,16 +54,18 @@ contract AdTest is Test {
   function testReSetForTooLowPrice() public {
     string memory title = "Hello world";
     string memory href = "https://example.com";
-    uint256 value = 1;
+    uint256 value = 2;
     ad.set{value: value}(title, href);
 
     (uint256 price, uint256 taxes) = ad.price();
-    assertEq(price, 1);
+    assertEq(price, 2);
     assertEq(taxes, 0);
 
     Setter setter = new Setter();
+    payable(address(setter)).transfer(1 ether);
     vm.expectRevert(Ad.ErrValue.selector);
-    setter.set{value: 1}(ad, title, href);
+    uint256 setterValue = 1;
+    setter.set(ad, title, href, setterValue);
   }
 
   function testSet() public {
@@ -87,8 +97,10 @@ contract AdTest is Test {
     assertEq(taxes1, 1);
 
     Setter setter = new Setter();
+    payable(address(setter)).transfer(1 ether);
     vm.expectRevert(Ad.ErrValue.selector);
-    setter.set{value: collateral0-2}(ad, title, href);
+    uint256 setterValue = collateral0-3;
+    setter.set(ad, title, href, setterValue);
   }
 
   function testReSet() public {
@@ -109,10 +121,12 @@ contract AdTest is Test {
     assertEq(taxes1, 1);
 
     Setter setter = new Setter();
+    payable(address(setter)).transfer(1 ether);
     uint256 balance0 = address(this).balance;
-    setter.set{value: ad.collateral()}(ad, title, href);
+    uint256 setterValue = ad.collateral();
+    setter.set(ad, title, href, setterValue);
     uint256 balance1 = address(this).balance;
-    assertEq(balance0 - balance1, 1);
+    assertEq(balance1 - balance0, nextPrice1);
 
 
     uint256 collateral1 = ad.collateral();

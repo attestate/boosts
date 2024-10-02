@@ -79,6 +79,24 @@ contract AdTest is Test {
     assertEq(ad.timestamp(), block.timestamp);
   }
 
+  function testTaxationAfterAMonth() public {
+    string memory title = "Hello world";
+    string memory href = "https://example.com";
+    uint256 value = 1 ether;
+    ad.set{value: value}(title, href);
+
+    uint256 collateral0 = ad.collateral();
+    assertEq(ad.controller(), address(this));
+    assertEq(collateral0, value);
+    assertEq(ad.timestamp(), block.timestamp);
+
+    vm.warp(block.timestamp+2629800); // 2629800s are a month
+
+    (uint256 nextPrice1, uint256 taxes1) = ad.price();
+    assertEq(nextPrice1, 0);
+    assertEq(taxes1, ad.collateral());
+  }
+
   function testReSetForLowerPrice() public {
     string memory title = "Hello world";
     string memory href = "https://example.com";

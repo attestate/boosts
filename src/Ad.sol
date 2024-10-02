@@ -6,11 +6,11 @@ import { ReentrancyGuard } from "./ReentrancyGuard.sol";
 
 address constant treasury = 0x1337E2624ffEC537087c6774e9A18031CFEAf0a9;
 address constant admin = 0xee324c588ceF1BF1c1360883E4318834af66366d;
-// NOTE: The tax rate is 1/31556952 per year. The denominator (31556952) is
-// seconds in a year. Practically, it means that a self-assessed key worth 1
-// ether will accumulate a tax obligation of 1 ether/year.
+// NOTE: The tax rate is 1/2629746 per second. The denominator (2629746) is
+// seconds in a month. Practically, it means that a self-assessed key worth 1
+// ether will accumulate a tax obligation of 1 ether/month.
 uint256 constant numerator    = 1;
-uint256 constant denominator  = 31556952;
+uint256 constant denominator  = 2629746;
 contract Ad is ReentrancyGuard {
   error ErrValue();
   error ErrUnauthorized();

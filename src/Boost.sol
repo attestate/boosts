@@ -4,7 +4,7 @@ pragma solidity ^0.8.13;
 import { FixedPointMathLib } from "./FixedPointMathLib.sol";
 
 address constant treasury = 0x1337E2624ffEC537087c6774e9A18031CFEAf0a9;
-uint256 constant basePrice = 0.000777 ether;
+uint256 constant basePrice = 0.00222 ether;
 uint256 constant SECONDS_PER_DAY = 86400;
 contract Boost {
   event BoostHref(string href);

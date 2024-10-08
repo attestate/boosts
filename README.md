@@ -35,7 +35,7 @@ CREATE2 is used to deploy the contract to a deterministic address independent
 ## Updates and verifying on Etherscan
 
 ```
-ETHERSCAN_API_KEY=abc forge verify-contract address Ad --watch --chain 10
+ETHERSCAN_API_KEY=abc forge verify-contract address Boost --watch --chain 10
 ```
 
 ## License

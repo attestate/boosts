@@ -11,13 +11,14 @@ story is seen for a while on the Hot feed!
 Here's how it works:
 
 1. We aim to have 1 boost every 24 hours. If everyone agrees to just boost a
-   story every 24 hours, then the price of the boost will be 0.000777 ether.
+   story every 24 hours, then the price of the boost will be 0.00222 ether.
 2. However, if the community decides to boost more than every 24 hours it'll
-   cost quadratically (`x**2 * 0.000777 ether`) more to boost.
+   cost quadratically (`x**2 * 0.00222 ether`) more to boost.
 
 Here are the costs:
 
-<img width="646" alt="Screenshot 2024-10-08 at 14 20 08" src="https://github.com/user-attachments/assets/a7e8cec6-a7f4-44bb-9d57-e59b08dedfdf">
+![photo_2024-10-08 14 53 16](https://github.com/user-attachments/assets/243283de-20ff-4ad8-98eb-fa2029c9dd2f)
+
 
 
 ## Deployment
